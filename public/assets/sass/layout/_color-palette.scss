@@ -1,0 +1,235 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+START: Color palette CSS
+----------------------------------------*/
+.tj-color-palette-section {
+	.sec-heading {
+		max-width: 550px;
+	}
+}
+
+.color-palette-wrapper {
+	position: relative;
+	.color-palette-navigation {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 5;
+		width: 100%;
+		justify-content: space-between;
+		transition: all 0.5s;
+		@media #{$sm, $xs} {
+			top: 105px;
+			height: 0;
+		}
+	}
+	.slider-prev {
+		margin-top: -100px;
+		margin-left: -24px;
+		@media #{$md} {
+			margin-top: -75px;
+		}
+		@media #{$sm, $xs} {
+			margin-top: 0;
+			margin-left: 0;
+		}
+	}
+	.slider-next {
+		margin-top: -100px;
+		margin-right: -24px;
+		@media #{$md} {
+			margin-top: -75px;
+		}
+		@media #{$sm, $xs} {
+			margin-top: 0;
+			margin-right: 0;
+		}
+	}
+}
+
+/* Tabs */
+.color-palette-slider {
+	.tab-content {
+		> .tab-pane {
+			@media #{$sm, $xs} {
+				min-height: 250px;
+				img {
+					height: 250px;
+					width: 100%;
+					object-fit: cover;
+				}
+			}
+		}
+	}
+	.nav {
+		padding: 30px 0;
+		border-bottom: 1px dashed var(--tj-color-border-1);
+		gap: 292px;
+		@media #{$xl} {
+			gap: 200px;
+		}
+		@media #{$lg} {
+			gap: 150px;
+		}
+		@media #{$md} {
+			gap: 100px;
+			padding: 20px 0;
+		}
+		@media #{$sm, $xs} {
+			padding: 20px 0;
+			gap: 20px;
+		}
+	}
+	.nav-item:not(:last-child) {
+		position: relative;
+		&::after {
+			content: "";
+			display: inline-block;
+			position: absolute;
+			right: -146px;
+			top: 0;
+			width: 1px;
+			height: 100%;
+			border-right: 1px dashed var(--tj-color-border-1);
+			@media #{$xl} {
+				right: -100px;
+			}
+			@media #{$lg} {
+				right: -75px;
+			}
+			@media #{$md} {
+				right: -50px;
+			}
+			@media #{$sm, $xs} {
+				display: none;
+			}
+		}
+	}
+	.nav-link {
+		background-color: transparent;
+		color: var(--tj-color-common-black);
+		text-align: left;
+		padding: 0;
+		&.active {
+			.color-palette-name {
+				&::after {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+	}
+}
+
+.color-palette-name {
+	display: flex;
+	position: relative;
+	gap: 8px;
+	margin-bottom: 15px;
+	text-transform: uppercase;
+	font-family: var(--tj-ff-heading);
+	font-weight: var(--tj-fw-medium);
+	letter-spacing: -0.4px;
+	&::before {
+		content: "";
+		display: inline-block;
+		width: 23px;
+		height: 23px;
+		border-radius: 50%;
+		border: 1px solid var(--tj-color-common-black);
+		@media #{$md, $sm, $xs} {
+			width: 18px;
+			height: 18px;
+		}
+	}
+	&::after {
+		content: "";
+		display: inline-block;
+		position: absolute;
+		left: 5px;
+		top: 5px;
+		width: 13px;
+		height: 13px;
+		border-radius: 50%;
+		background-color: var(--tj-color-common-black);
+		opacity: 0;
+		visibility: hidden;
+		@media #{$md, $sm, $xs} {
+			width: 10px;
+			height: 10px;
+			top: 4px;
+			left: 4px;
+		}
+	}
+	@media #{$md, $sm, $xs} {
+		font-size: 14px;
+		margin-bottom: 10px;
+		gap: 5px;
+	}
+}
+.colors {
+	display: flex;
+	gap: 10px;
+}
+.color {
+	width: 46px;
+	height: 46px;
+	&-1 {
+		background-color: #f68109;
+	}
+	&-2 {
+		background-color: #ffb123;
+	}
+	&-3 {
+		background-color: #141415;
+	}
+	&-4 {
+		background-color: #e64a4d;
+	}
+	&-5 {
+		background-color: #100c0d;
+	}
+	&-6 {
+		background-color: #d9bcbc;
+	}
+	&-7 {
+		background-color: #1b7bd2;
+	}
+	&-8 {
+		background-color: #bed5ea;
+	}
+	&-9 {
+		background-color: #ecca57;
+	}
+	&-10 {
+		background-color: #a37510;
+	}
+	&-11 {
+		background-color: #483e2f;
+	}
+	&-12 {
+		background-color: #ec8258;
+	}
+	&-13 {
+		background-color: #a33210;
+	}
+	&-14 {
+		background-color: #483630;
+	}
+	&-15 {
+		background-color: #7ae5c1;
+	}
+	&-16 {
+		background-color: #21735d;
+	}
+	&-17 {
+		background-color: #2c3c37;
+	}
+	@media #{$md, $sm, $xs} {
+		width: 30px;
+		height: 30px;
+	}
+}
+
+/* !END: Color palette CSS */

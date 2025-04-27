@@ -1,0 +1,111 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+START: Theme Marquee CSS
+----------------------------------------*/
+.tj-marquee-section {
+	position: relative;
+	padding-top: 33px;
+	padding-bottom: 37px;
+	overflow: hidden;
+	border-bottom: 2px solid var(--tj-color-theme-primary);
+	@media #{$md, $sm, $xs} {
+		padding-top: 22px;
+		padding-bottom: 16px;
+	}
+}
+
+.tj-marquee-section-2 {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	background-color: var(--tj-color-theme-primary);
+}
+
+.marquee-wrapper {
+	.marquee-slider {
+		.swiper-wrapper {
+			transition-timing-function: linear;
+		}
+	}
+}
+
+.marquee-item {
+	width: auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 50px;
+	padding-right: 50px;
+	.marquee-text {
+		color: var(--tj-color-heading-primary);
+		font-size: 100px;
+		font-weight: var(--tj-fw-medium);
+		font-family: var(--tj-ff-heading);
+		text-transform: uppercase;
+		line-height: 1;
+		margin: 0;
+		@media #{$xl, $lg} {
+			font-size: 75px;
+		}
+		@media #{$md, $sm} {
+			font-size: 45px;
+		}
+		@media #{$xs} {
+			font-size: 25px;
+		}
+	}
+	.marquee-icons {
+		position: relative;
+		top: 4px;
+		color: var(--tj-color-theme-primary);
+		font-size: 76px;
+		line-height: 1;
+		display: inline-flex;
+		i {
+			display: inline-flex;
+			line-height: 1;
+		}
+		@media #{$xl, $lg} {
+			font-size: 60px;
+		}
+		@media #{$md, $sm} {
+			font-size: 40px;
+		}
+		@media #{$xs} {
+			font-size: 25px;
+		}
+	}
+	@media #{$md, $sm} {
+		gap: 25px;
+		padding-right: 25px;
+	}
+	@media #{$xs} {
+		gap: 20px;
+		padding-right: 20px;
+	}
+
+	&.style-2 {
+		gap: 20px;
+		padding-right: 20px;
+		.marquee-text {
+			font-size: 24px;
+			color: var(--tj-color-common-white);
+		}
+		.marquee-icons {
+			top: 0;
+			font-size: 18px;
+			color: var(--tj-color-common-white);
+			animation: rotateImg 6s infinite linear;
+		}
+	}
+}
+
+@keyframes rotateImg {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(-360deg);
+	}
+}
+/* !END: Theme Marquee CSS */

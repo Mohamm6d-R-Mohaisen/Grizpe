@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+    @font-face {
+      font-family: 'Nunito';
+      src: url('assets/font/Nunito-Regular.otf') format('opentype');
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="py-3 bg-primary2">
+      <div class="flex justify-between items-center w-[90%] lg:w-[80%] mx-auto">
+        <div>logo</div>
+
+        <button id="mobile-menu-button" class="lg:hidden text-white p-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+        <div class="hidden lg:block flex-1 max-w-2xl mx-4">
+          <div class="relative bg-white rounded-xl flex items-center">
+            <input type="text" placeholder="search what you need ..."
+              class="flex h-10 px-10 w-full rounded-md border-input py-2 text-base ring-offset-transparent file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm">
+            <span class="absolute inset-y-0 left-2 flex items-center pointer-events-none">
+              <svg class="h-5 w-5 text-gray-400" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M0 8.66993C0 3.88166 3.84034 0 8.57764 0C10.8526 0 13.0343 0.913436 14.6429 2.53936C16.2516 4.16529 17.1553 6.37052 17.1553 8.66993C17.1553 13.4582 13.3149 17.3399 8.57764 17.3399C3.84034 17.3399 0 13.4582 0 8.66993ZM17.0134 15.6543L19.568 17.7164H19.6124C20.1292 18.2388 20.1292 19.0858 19.6124 19.6082C19.0955 20.1306 18.2576 20.1306 17.7407 19.6082L15.6207 17.1785C15.4203 16.9766 15.3076 16.7024 15.3076 16.4164C15.3076 16.1304 15.4203 15.8562 15.6207 15.6543C16.0072 15.2704 16.6268 15.2704 17.0134 15.6543Z"
+                  fill="#9F9F9F" />
+              </svg>
+            </span>
+            <span class="w-[1px] h-7 bg-gray-300"></span>
+            <select id="currency" name="currency" aria-label="Currency"
+              class="text-base text-gray-500 px-3 placeholder:text-gray-400 focus:outline-0 focus:-outline-offset-2 focus:outline-transparent sm:text-sm/6">
+              <option>All</option>
+              <option>All1</option>
+              <option>All2</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="hidden lg:flex space-x-4">
+          <a>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M13.8498 0.500694C14.4808 0.500694 15.1108 0.589694 15.7098 0.790694C19.4008 1.99069 20.7308 6.04069 19.6198 9.58069C18.9898 11.3897 17.9598 13.0407 16.6108 14.3897C14.6798 16.2597 12.5608 17.9197 10.2798 19.3497L10.0298 19.5007L9.76977 19.3397C7.48077 17.9197 5.34977 16.2597 3.40077 14.3797C2.06077 13.0307 1.02977 11.3897 0.389772 9.58069C-0.740228 6.04069 0.589773 1.99069 4.32077 0.769694C4.61077 0.669694 4.90977 0.599694 5.20977 0.560694H5.32977C5.61077 0.519694 5.88977 0.500694 6.16977 0.500694H6.27977C6.90977 0.519694 7.51977 0.629694 8.11077 0.830694H8.16977C8.20977 0.849694 8.23977 0.870694 8.25977 0.889694C8.48077 0.960694 8.68977 1.04069 8.88977 1.15069L9.26977 1.32069C9.36159 1.36967 9.46466 1.44449 9.55373 1.50916C9.61017 1.55014 9.66099 1.58703 9.69977 1.61069C9.71609 1.62032 9.73268 1.63 9.7494 1.63976C9.83514 1.68981 9.92446 1.74195 9.99977 1.79969C11.1108 0.950694 12.4598 0.490694 13.8498 0.500694ZM16.5098 7.70069C16.9198 7.68969 17.2698 7.36069 17.2998 6.93969V6.82069C17.3298 5.41969 16.4808 4.15069 15.1898 3.66069C14.7798 3.51969 14.3298 3.74069 14.1798 4.16069C14.0398 4.58069 14.2598 5.04069 14.6798 5.18969C15.3208 5.42969 15.7498 6.06069 15.7498 6.75969V6.79069C15.7308 7.01969 15.7998 7.24069 15.9398 7.41069C16.0798 7.58069 16.2898 7.67969 16.5098 7.70069Z"
+                fill="white" />
+            </svg>
+          </a>
+          <a>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M12.1213 9.23312H14.8891C15.3088 9.23312 15.6386 8.88615 15.6386 8.46774C15.6386 8.03912 15.3088 7.70236 14.8891 7.70236H12.1213C11.7016 7.70236 11.3719 8.03912 11.3719 8.46774C11.3719 8.88615 11.7016 9.23312 12.1213 9.23312ZM18.1766 3.92749C18.7861 3.92749 19.1858 4.1418 19.5855 4.61123C19.9852 5.08067 20.0551 5.7542 19.9652 6.36549L19.0159 13.06C18.8361 14.3469 17.7569 15.2949 16.4879 15.2949H5.58639C4.25742 15.2949 3.15828 14.255 3.04837 12.908L2.12908 1.7834L0.620259 1.51807C0.22057 1.44664 -0.0592117 1.04864 0.0107338 0.640433C0.0806793 0.223045 0.470376 -0.0535127 0.880056 0.0087383L3.2632 0.375101C3.60293 0.437352 3.85274 0.722074 3.88272 1.06905L4.07257 3.35499C4.10254 3.68257 4.36234 3.92749 4.68209 3.92749H18.1766ZM5.42631 16.9079C4.58697 16.9079 3.9075 17.6018 3.9075 18.459C3.9075 19.3061 4.58697 20 5.42631 20C6.25567 20 6.93514 19.3061 6.93514 18.459C6.93514 17.6018 6.25567 16.9079 5.42631 16.9079ZM16.6676 16.9079C15.8282 16.9079 15.1487 17.6018 15.1487 18.459C15.1487 19.3061 15.8282 20 16.6676 20C17.4969 20 18.1764 19.3061 18.1764 18.459C18.1764 17.6018 17.4969 16.9079 16.6676 16.9079Z"
+                fill="white" />
+            </svg>
+          </a>
+          <a>
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M13.294 5.29105C13.294 8.22808 10.9391 10.5831 8 10.5831C5.0619 10.5831 2.70601 8.22808 2.70601 5.29105C2.70601 2.35402 5.0619 0 8 0C10.9391 0 13.294 2.35402 13.294 5.29105ZM8 20C3.66237 20 0 19.295 0 16.575C0 13.8539 3.68538 13.1739 8 13.1739C12.3386 13.1739 16 13.8789 16 16.599C16 19.32 12.3146 20 8 20Z"
+                fill="white" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:hidden bg-primary2 pb-3">
+      <div class="w-[90%] mx-auto">
+        <div class="relative bg-white rounded-xl flex items-center">
+          <input type="text" placeholder="search what you need ..."
+            class="flex h-10 px-10 w-full rounded-md border-input py-2 text-base ring-offset-transparent file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm">
+          <span class="absolute inset-y-0 left-2 flex items-center pointer-events-none">
+            <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="#9F9F9F">
+              <path
+                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" />
+            </svg>
+          </span>
+          <span class="w-[1px] h-7 bg-gray-300"></span>
+          <select id="currency" name="currency" aria-label="Currency"
+            class="text-base text-gray-500 px-3 placeholder:text-gray-400 focus:outline-0 focus:-outline-offset-2 focus:outline-transparent sm:text-sm/6">
+            <option>All</option>
+            <option>All1</option>
+            <option>All2</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <nav class="bg-white">
+      <div class="hidden lg:flex justify-center items-center h-16 space-x-4">
+        <a href="#" class="rounded-md px-3 py-2 text-base font-medium text-primary2 hover:bg-gray-50">Service</a>
+        <a href="#" class="rounded-md px-3 py-2 text-base font-medium text-primary2 hover:bg-gray-50">About</a>
+        <a href="#" class="rounded-md px-3 py-2 text-base font-medium text-primary2 hover:bg-gray-50">Why choose
+          us</a>
+        <a href="#" class="rounded-md px-3 py-2 text-base font-medium text-primary2 hover:bg-gray-50">Contact</a>
+        <a href="selldevice.html"
+          class="rounded-md px-3 py-2 text-base font-medium text-black bg-gray-100 hover:bg-gray-50">Sell your
+          device</a>
+      </div>
+
+      <div id="mobile-menu" class="hidden lg:hidden">
+        <div class="px-4 py-2 space-y-1">
+          <a href="#"
+            class="block rounded-md px-3 py-2 text-base font-medium text-primary2 hover:bg-gray-50">Service</a>
+          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-primary2 hover:bg-gray-50">About</a>
+          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-primary2 hover:bg-gray-50">Why
+            choose us</a>
+          <a href="#"
+            class="block rounded-md px-3 py-2 text-base font-medium text-primary2 hover:bg-gray-50">Contact</a>
+          <a href="#"
+            class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-50 bg-gray-100 ">Sell
+            your device</a>
+
+          <div class="pt-4 flex space-x-4 justify-center border-t border-gray-200">
+            <a href="#" class="text-gray-500 hover:text-primary2">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M13.8498 0.500694C14.4808 0.500694 15.1108 0.589694 15.7098 0.790694C19.4008 1.99069 20.7308 6.04069 19.6198 9.58069C18.9898 11.3897 17.9598 13.0407 16.6108 14.3897C14.6798 16.2597 12.5608 17.9197 10.2798 19.3497L10.0298 19.5007L9.76977 19.3397C7.48077 17.9197 5.34977 16.2597 3.40077 14.3797C2.06077 13.0307 1.02977 11.3897 0.389772 9.58069C-0.740228 6.04069 0.589773 1.99069 4.32077 0.769694C4.61077 0.669694 4.90977 0.599694 5.20977 0.560694H5.32977C5.61077 0.519694 5.88977 0.500694 6.16977 0.500694H6.27977C6.90977 0.519694 7.51977 0.629694 8.11077 0.830694H8.16977C8.20977 0.849694 8.23977 0.870694 8.25977 0.889694C8.48077 0.960694 8.68977 1.04069 8.88977 1.15069L9.26977 1.32069C9.36159 1.36967 9.46466 1.44449 9.55373 1.50916C9.61017 1.55014 9.66099 1.58703 9.69977 1.61069C9.71609 1.62032 9.73268 1.63 9.7494 1.63976C9.83514 1.68981 9.92446 1.74195 9.99977 1.79969C11.1108 0.950694 12.4598 0.490694 13.8498 0.500694ZM16.5098 7.70069C16.9198 7.68969 17.2698 7.36069 17.2998 6.93969V6.82069C17.3298 5.41969 16.4808 4.15069 15.1898 3.66069C14.7798 3.51969 14.3298 3.74069 14.1798 4.16069C14.0398 4.58069 14.2598 5.04069 14.6798 5.18969C15.3208 5.42969 15.7498 6.06069 15.7498 6.75969V6.79069C15.7308 7.01969 15.7998 7.24069 15.9398 7.41069C16.0798 7.58069 16.2898 7.67969 16.5098 7.70069Z"
+                  fill="currentColor" />
+              </svg>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary2">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M12.1213 9.23312H14.8891C15.3088 9.23312 15.6386 8.88615 15.6386 8.46774C15.6386 8.03912 15.3088 7.70236 14.8891 7.70236H12.1213C11.7016 7.70236 11.3719 8.03912 11.3719 8.46774C11.3719 8.88615 11.7016 9.23312 12.1213 9.23312ZM18.1766 3.92749C18.7861 3.92749 19.1858 4.1418 19.5855 4.61123C19.9852 5.08067 20.0551 5.7542 19.9652 6.36549L19.0159 13.06C18.8361 14.3469 17.7569 15.2949 16.4879 15.2949H5.58639C4.25742 15.2949 3.15828 14.255 3.04837 12.908L2.12908 1.7834L0.620259 1.51807C0.22057 1.44664 -0.0592117 1.04864 0.0107338 0.640433C0.0806793 0.223045 0.470376 -0.0535127 0.880056 0.0087383L3.2632 0.375101C3.60293 0.437352 3.85274 0.722074 3.88272 1.06905L4.07257 3.35499C4.10254 3.68257 4.36234 3.92749 4.68209 3.92749H18.1766ZM5.42631 16.9079C4.58697 16.9079 3.9075 17.6018 3.9075 18.459C3.9075 19.3061 4.58697 20 5.42631 20C6.25567 20 6.93514 19.3061 6.93514 18.459C6.93514 17.6018 6.25567 16.9079 5.42631 16.9079ZM16.6676 16.9079C15.8282 16.9079 15.1487 17.6018 15.1487 18.459C15.1487 19.3061 15.8282 20 16.6676 20C17.4969 20 18.1764 19.3061 18.1764 18.459C18.1764 17.6018 17.4969 16.9079 16.6676 16.9079Z"
+                  fill="currentColor" />
+              </svg>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary2">
+              <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M13.294 5.29105C13.294 8.22808 10.9391 10.5831 8 10.5831C5.0619 10.5831 2.70601 8.22808 2.70601 5.29105C2.70601 2.35402 5.0619 0 8 0C10.9391 0 13.294 2.35402 13.294 5.29105ZM8 20C3.66237 20 0 19.295 0 16.575C0 13.8539 3.68538 13.1739 8 13.1739C12.3386 13.1739 16 13.8789 16 16.599C16 19.32 12.3146 20 8 20Z"
+                  fill="currentColor" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="max-w-7xl mx-auto px-4 py-12" x-data="deviceWizard()">
+      <div class="max-w-3xl mx-auto px-4 py-12">
+        <div class="text-center mb-12">
+          <h1 class="text-3xl md:text-4xl font-bold text-center mb-4">Sell Your Device</h1>
+          <p class="text-[#9F9F9F] text-sm text-start max-w-3xl mx-auto">
+            Every day, we assist customers in trading in or selling their old devices effortlessly. Start by
+            selecting your device below to receive a quote. Upon receiving your quote, we will provide a prepaid
+            shipping label for you to send in your device.
+          </p>
+          <div class="relative bg-white rounded-xl my-10">
+            <input type="text" placeholder="Search ..."
+              class="flex h-10 px-10 w-full border border-black/30 bg-[#F8F8F8] rounded-xl border-input py-2 text-base ring-offset-transparent file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm">
+            <span class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M0 8.66993C0 3.88166 3.84034 0 8.57764 0C10.8526 0 13.0343 0.913436 14.6429 2.53936C16.2516 4.16529 17.1553 6.37052 17.1553 8.66993C17.1553 13.4582 13.3149 17.3399 8.57764 17.3399C3.84034 17.3399 0 13.4582 0 8.66993ZM17.0134 15.6543L19.568 17.7164H19.6124C20.1292 18.2388 20.1292 19.0858 19.6124 19.6082C19.0955 20.1306 18.2576 20.1306 17.7407 19.6082L15.6207 17.1785C15.4203 16.9766 15.3076 16.7024 15.3076 16.4164C15.3076 16.1304 15.4203 15.8562 15.6207 15.6543C16.0072 15.2704 16.6268 15.2704 17.0134 15.6543Z"
+                  fill="#9F9F9F" />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Step 1: Device Selection -->
+      <div x-show="step === 1">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <template x-for="device in devices" :key="device.id">
+            <div @click="selectDevice(device)"
+              class="bg-primary2 rounded-3xl p-3 lg:p-8 flex flex-col-reverse md:flex-row items-center justify-center gap-8 cursor-pointer">
+              <div class="flex flex-col space-y-6">
+                <div>
+                  <h2 class="text-white text-2xl font-light mb-2" x-text="device.name"></h2>
+                  <p class="text-gray-300 text-xl font-light">Now Available</p>
+                </div>
+                <button
+                  class="bg-white text-black py-3 px-6 rounded-xl text-lg hover:bg-gray-100 transition-colors w-40">
+                  Learn More
+                </button>
+              </div>
+              <div class="rounded-2xl overflow-hidden">
+                <img :src="device.image" :alt="device.name" class="w-full h-48 object-cover">
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <!-- Step 2: Model Selection -->
+      <div x-show="step === 2">
+        <div class="my-5">
+          <button @click="step = 1" class="flex items-center gap-2 text-gray-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span>Back to device selection</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <template x-for="model in models" :key="model.id">
+            <div @click="selectModel(model)"
+              class="p-4 border rounded-lg text-center cursor-pointer hover:border-blue-500">
+              <img :src="model.image" :alt="model.name" class="mx-auto mb-2 w-32 h-32 object-contain">
+              <span x-text="model.name"></span>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <!-- Step 3: Specifications -->
+      <div x-show="step === 3">
+        <div class="my-5">
+          <button @click="step = 2" class="flex items-center gap-2 text-gray-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span>Back to model selection</span>
+          </button>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Year Selection -->
+          <div class=" py-5 px-8 rounded-3xl bg-[#F8F8F8] border flex items-center justify-between">
+            <h3 class="font-medium"> Year </h3>
+            <span x-text="selections.year"></span>
+          </div>
+          <div class="border-b p-6">
+            <div class="flex gap-3 flex-wrap">
+              <template x-for="year in ['2020', '2021', '2022', '2023']">
+                <button @click="setYear(year)" :class="selections.year === year ? 'bg-black text-white' : 'bg-gray-200'"
+                  class="px-4 py-2 rounded transition-colors" x-text="year">
+                </button>
+              </template>
+            </div>
+          </div>
+
+          <!-- Memory Selection -->
+          <div x-show="selections.year">
+            <div class=" py-5 px-8 rounded-3xl bg-[#F8F8F8] border flex items-center justify-between">
+              <h3 class="font-medium"> Memory </h3>
+              <span x-text="selections.memory"></span>
+            </div>
+            <div class="border-b p-6">
+              <div class="flex gap-3 flex-wrap">
+                <template x-for="memory in ['64', '128', '256', '512']">
+                  <button @click="setMemory(memory)"
+                    :class="selections.memory === memory ? 'bg-black text-white' : 'bg-gray-200'"
+                    class="px-4 py-2 rounded transition-colors">
+                    <span x-text="memory + 'GB'"></span>
+                  </button>
+                </template>
+              </div>
+            </div>
+          </div>
+
+          <!-- Condition Selection -->
+          <div x-show="selections.memory">
+            <h3 class="font-medium mb-4">Select Condition</h3>
+            <div class="space-y-4">
+              <template x-for="condition in conditions">
+                <div @click="toggleCondition(condition.id)"
+                  :class="selections.condition === condition.id ? 'border-blue-500 bg-blue-50' : ''"
+                  class="border p-4 rounded-lg cursor-pointer">
+                  <div class="flex justify-between items-center">
+                    <h4 class="font-medium" x-text="condition.title"></h4>
+                  </div>
+                  <div x-show="activeCondition === condition.id" class="mt-4">
+                    <ul class="space-y-2">
+                      <template x-for="req in condition.requirements">
+                        <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                          </svg>
+                          <span x-text="req"></span>
+                        </li>
+                      </template>
+                    </ul>
+                    <button @click="setCondition(condition.id)"
+                      class="mt-4 w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800">
+                      Select Condition
+                    </button>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Delivery Method -->
+      <div x-show="step === 4">
+        <div class="my-5">
+          <button @click="step = 3" class="flex items-center gap-2 text-gray-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span>Back to specifications</span>
+          </button>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div @click="selectDeliveryMethod('mail')"
+            :class="selections.deliveryMethod === 'mail' ? 'border-blue-500 bg-blue-50' : ''"
+            class="border p-6 rounded-lg cursor-pointer text-center">
+            <svg class="w-16 h-16 mx-auto mb-4 text-primary2 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <h3 class="text-xl font-medium mb-2">Mail-In</h3>
+            <p class="text-gray-600">Ship your device using our pre-paid shipping label</p>
+          </div>
+
+          <div @click="selectDeliveryMethod('store')"
+            :class="selections.deliveryMethod === 'store' ? 'border-blue-500 bg-blue-50' : ''"
+            class="border p-6 rounded-lg cursor-pointer text-center">
+            <svg class="w-16 h-16 mx-auto mb-4 text-primary2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+            <h3 class="text-xl font-medium mb-2">In-Store</h3>
+            <p class="text-gray-600">Visit one of our locations to complete the trade-in</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5: Final Form -->
+      <div x-show="step === 5">
+        <div class="my-5">
+          <button @click="step = 4" class="flex items-center gap-2 text-gray-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span>Back to delivery method</span>
+          </button>
+        </div>
+
+
+        <div x-show="selections.deliveryMethod === 'mail'" class="bg-white p-6 rounded-lg space-y-4">
+          <div>
+            <div class="flex justify-between items-center">
+              <h3 class="text-xl font-semibold mb-4">Payout</h3>
+              <p class="text-2xl font-bold text-[#77c1d9] ">200$</p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
+              <label
+                class="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:shadow-md transition-shadow">
+                <input type="radio" name="payment" value="CashApp" class="radio-input hidden">
+                <div class="flex flex-col items-center">
+                  <svg class="w-12 h-12 text-[#77c1d2] mb-2" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" />
+                  </svg>
+                  <span>Cash App</span>
+                </div>
+              </label>
+
+              <label
+                class="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:shadow-md transition-shadow">
+                <input type="radio" name="payment" value="Donate" class="radio-input hidden">
+                <div class="flex flex-col items-center">
+                  <svg class="w-12 h-12 text-[#77c1d2] mb-2" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                  </svg>
+                  <span>Donate</span>
+                </div>
+              </label>
+
+              <label
+                class="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:shadow-md transition-shadow">
+                <input type="radio" name="payment" value="Check" class="radio-input hidden">
+                <div class="flex flex-col items-center">
+                  <svg class="w-12 h-12 text-[#77c1d2] mb-2" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" />
+                  </svg>
+                  <span>Paper Check</span>
+                </div>
+              </label>
+
+              <label
+                class="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:shadow-md transition-shadow">
+                <input type="radio" name="payment" value="PayPal" class="radio-input hidden">
+                <div class="flex flex-col items-center">
+                  <svg class="w-12 h-12 text-[#77c1d2] mb-2" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M9.93 11.22c.06.13.12.25.19.36.03.05.06.11.09.16-.45.03-.9.04-1.37.04l-1.05.93c-.45.4-.72.98-.72 1.6v2.88l-2.13 1.89c-.46.41-.73 1-.73 1.63v3.29h2v-3.29l2.13-1.89c.46-.41.73-1 .73-1.63v-2.88l1.05-.93c.43 0 .86-.01 1.28-.04-.03.05-.06.11-.09.16-.07.11-.13.23-.19.36-.18.34-.29.77-.29 1.23 0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5c0-.46-.11-.89-.29-1.23-.06-.13-.12-.25-.19-.36-.03-.05-.06-.11-.09-.16.42.03.85.04 1.28.04l1.05.93v2.88c0 .63.27 1.22.73 1.63l2.13 1.89v3.29h2v-3.29c0-.63-.27-1.22-.73-1.63l-2.13-1.89V13.4c0-.62-.27-1.2-.72-1.6l-1.05-.93c-.47 0-.92-.01-1.37-.04.03-.05.06-.11.09-.16.07-.11.13-.23.19-.36.18-.34.29-.77.29-1.23 0-1.38-1.12-2.5-2.5-2.5s-2.5 1.12-2.5 2.5c0 .46.11.89.29 1.23z" />
+                  </svg>
+                  <span>PayPal</span>
+                </div>
+              </label>
+
+              <label
+                class="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:shadow-md transition-shadow">
+                <input type="radio" name="payment" value="StoreCredit" class="radio-input hidden">
+                <div class="flex flex-col items-center">
+                  <svg class="w-12 h-12 text-[#77c1d2] mb-2" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" />
+                  </svg>
+                  <span>Store Credit</span>
+                  <span class="text-sm text-[#2f6672]">(10.00% Bonus Payout)</span>
+                </div>
+              </label>
+            </div>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">Your Address</h3>
+          <div class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="firstName" class="block text-sm text-gray-600 mb-1">First
+                  Name</label>
+                <input type="text" id="firstName"
+                  class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400"
+                  placeholder="First Name">
+              </div>
+              <div>
+                <label for="lastName" class="block text-sm text-gray-600 mb-1">Last Name</label>
+                <input type="text" id="lastName"
+                  class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400"
+                  placeholder="Last Name">
+              </div>
+            </div>
+            <div>
+              <label for="email" class="block text-sm text-gray-600 mb-1">Email Address</label>
+              <input type="email" id="email"
+                class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400"
+                placeholder="your@email.com">
+            </div>
+            <div>
+              <label for="phone" class="block text-sm text-gray-600 mb-1">Phone Number</label>
+              <div class="flex">
+                <div class="w-20 flex items-center border border-gray-200 rounded-lg px-3 bg-gray-50">
+                  <span class="text-gray-500">🇺🇸 +1</span>
+                </div>
+                <input type="tel" id="phone"
+                  class="flex-1 p-3 border border-gray-200 rounded-lg ml-2 focus:outline-none focus:border-gray-400"
+                  placeholder="(201) 555-0123">
+              </div>
+            </div>
+            <div>
+              <label for="address" class="block text-sm text-gray-600 mb-1">Street Address</label>
+              <input type="text" id="address"
+                class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400"
+                placeholder="Street Address">
+            </div>
+            <div>
+              <label for="addressDetails" class="block text-sm text-gray-600 mb-1">Apartment,
+                suite,
+                unit, etc.</label>
+              <input type="text" id="addressDetails"
+                class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400"
+                placeholder="Apartment, suite, unit, building, floor, etc.">
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label for="city" class="block text-sm text-gray-600 mb-1">City</label>
+                <input type="text" id="city"
+                  class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400"
+                  placeholder="City">
+              </div>
+              <div>
+                <label for="state" class="block text-sm text-gray-600 mb-1">State</label>
+                <select id="state"
+                  class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400">
+                  <option>Select State</option>
+                </select>
+              </div>
+              <div>
+                <label for="zip" class="block text-sm text-gray-600 mb-1">Postal Code</label>
+                <input type="text" id="zip"
+                  class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400"
+                  placeholder="Postal Code">
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-2">
+              <input type="checkbox" class="mt-1">
+              <span class="text-sm">Text me regarding updates on my offer, its status, or offer
+                promotions</span>
+            </div>
+
+            <p class="text-sm text-gray-600">By signing up via text, you consent to receive
+              automated
+              text messages about your offer (e.g. status updates and cart reminders) from SA-BBR
+              at
+              the number provided. Consent is not mandatory. Message & data rates may apply.
+              Unsubscribe at any time by replying STOP.</p>
+
+            <div class="bg-yellow-50 p-4 rounded-lg">
+              <p class="text-sm">By clicking Lock in Offer you agree to SA - BBR <a href="#"
+                  class="text-[#77c1d2]">Terms and Conditions</a> and confirm that the item
+                you
+                are selling has not been reported lost or stolen.</p>
+            </div>
+          </div>
+          <button class="w-full bg-[#77c1d2] text-white py-3 px-6 rounded-lg hover:bg-[#66a4b3] transition-colors">
+            Lock in Offer
+          </button>
+        </div>
+
+        <div x-show="selections.deliveryMethod === 'store'" class="bg-white p-6 rounded-lg space-y-4">
+          <div class="space-y-6">
+            <h3 class="text-xl font-semibold">Contact</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="firstName" class="block text-sm text-gray-600 mb-1">First
+                  Name</label>
+                <input type="text" id="firstName"
+                  class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400"
+                  placeholder="First Name">
+              </div>
+              <div>
+                <label for="lastName" class="block text-sm text-gray-600 mb-1">Last Name</label>
+                <input type="text" id="lastName"
+                  class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400"
+                  placeholder="Last Name">
+              </div>
+            </div>
+            <div>
+              <label for="email" class="block text-sm text-gray-600 mb-1">Email Address</label>
+              <input type="email" id="email"
+                class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400"
+                placeholder="your@email.com">
+            </div>
+            <div>
+              <label for="phone" class="block text-sm text-gray-600 mb-1">Phone Number</label>
+              <div class="flex">
+                <div class="w-20 flex items-center border border-gray-200 rounded-lg px-3 bg-gray-50">
+                  <span class="text-gray-500">🇺🇸 +1</span>
+                </div>
+                <input type="tel" id="phone"
+                  class="flex-1 p-3 border border-gray-200 rounded-lg ml-2 focus:outline-none focus:border-gray-400"
+                  placeholder="(201) 555-0123">
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-medium">Schedule Store Visit</h4>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm text-gray-600 mb-1">Preferred Date</label>
+                  <input type="date"
+                    class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400">
+                </div>
+                <div>
+                  <label class="block text-sm text-gray-600 mb-1">Preferred Time</label>
+                  <select class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400">
+                    <option value="">Select a time</option>
+                    <option value="09:00">9:00 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="12:00">12:00 PM</option>
+                    <option value="13:00">1:00 PM</option>
+                    <option value="14:00">2:00 PM</option>
+                    <option value="15:00">3:00 PM</option>
+                    <option value="16:00">4:00 PM</option>
+                    <option value="17:00">5:00 PM</option>
+                  </select>
+                </div>
+              </div>
+              <p class="text-sm text-gray-500">Please select your preferred date and time for
+                store
+                visit. We'll confirm the appointment via email.</p>
+            </div>
+
+            <div class="text-sm text-gray-600">
+              <p>By signing up via text, you consent to receive automated text messages about your
+                offer (e.g. status updates and cart reminders) from SA-BBR at the number
+                provided.
+                Consent is not mandatory. Message & data rates may apply. Unsubscribe at any
+                time by
+                replying STOP.</p>
+            </div>
+
+            <div class="flex items-start space-x-2">
+              <input type="checkbox" class="mt-1" checked>
+              <span class="text-sm">Text me regarding updates on my offer, its status, or offer
+                promotions</span>
+            </div>
+          </div>
+
+          <div class="mt-8 space-y-6">
+            <div class="flex justify-between items-center">
+              <h3 class="text-xl font-semibold mb-4">Payout</h3>
+              <p class="text-2xl font-bold text-[#77c1d9] ">200$</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <label
+                class="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:shadow-md transition-shadow">
+                <input type="radio" name="payment" value="check" class="radio-input hidden">
+                <div class="flex flex-col items-center">
+                  <svg class="w-12 h-12 text-[#77c1d2] mb-2" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4M20 18H4V6H20V18Z" />
+                  </svg>
+                  <span>Paper Check</span>
+                </div>
+              </label>
+
+              <label
+                class="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:shadow-md transition-shadow">
+                <input type="radio" name="payment" value="store-credit" class="radio-input hidden">
+                <div class="flex flex-col items-center">
+                  <svg class="w-12 h-12 text-[#77c1d2] mb-2" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M20 4H4C2.89 4 2.01 4.89 2.01 6L2 18C2 19.11 2.89 20 4 20H20C21.11 20 22 19.11 22 18V6C22 4.89 21.11 4 20 4M20 18H4V6H20V18Z" />
+                  </svg>
+                  <span>Store Credit</span>
+                  <span class="text-sm text-[#77c1d2]">(10.00% Bonus Payout)</span>
+                </div>
+              </label>
+
+              <label
+                class="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:shadow-md transition-shadow">
+                <input type="radio" name="payment" value="donate" class="radio-input hidden">
+                <div class="flex flex-col items-center">
+                  <svg class="w-12 h-12 text-[#77c1d2] mb-2" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 21.35L10.55 20.03C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5C22 12.27 18.6 15.36 13.45 20.03L12 21.35Z" />
+                  </svg>
+                  <span>Donate</span>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="mt-8">
+            <button class="w-full bg-[#77c1d2] text-white py-3 px-6 rounded-lg hover:bg-[#50828d] transition-colors">
+              Lock in Offer
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    <div class="w-[90%] lg:w-[80%] mx-auto my-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+        <div class="col-span-2 space-y-4 lg:pe-20">
+          <div>logo</div>
+          <p class="text-xs font-light text-[#727272]">Lorem ipsum dolor sit amet consectetur. Vel ultricies
+            varius ut vitae egestas massa.</p>
+          <div class="flex gap-3">
+            <input
+              class="bg-[#FAFAFA] p-2 placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+              type="email" placeholder="user@example.com" />
+            <button class="bg-[#AFAFAD] text-white text-sm rounded px-3 py-3">SUBSCIBE</button>
+          </div>
+          <a href="" class="text-black ">CALL US</a>
+        </div>
+        <div class="space-y-4">
+          <h3 class="text-black text-lg font-bold">Products</h3>
+          <a href="" class="text-[#727272] text-sm font-light block">Inventory</a>
+          <a href="" class="text-[#727272] text-sm font-light block">Sales</a>
+          <a href="" class="text-[#727272] text-sm font-light block">Purchases</a>
+          <a href="" class="text-[#727272] text-sm font-light block">Store</a>
+        </div>
+        <div class="space-y-4">
+          <h3 class="text-black text-lg font-bold">The compayn</h3>
+          <a href="" class="text-[#727272] text-sm font-light block">About</a>
+          <a href="" class="text-[#727272] text-sm font-light block">Our contact</a>
+        </div>
+        <div class="space-y-4">
+          <h3 class="text-black text-lg font-bold">Resources</h3>
+          <a href="" class="text-[#727272] text-sm font-light block">Online payment</a>
+          <a href="" class="text-[#727272] text-sm font-light block">Privacy policy</a>
+          <a href="" class="text-[#727272] text-sm font-light block">Terms & conditions</a>
+        </div>
+        <div></div>
+      </div>
+    </div>
+    <div class="bg-primary2">
+      <div class="w-[90%] lg:w-[80%] mx-auto">
+        <div class="text-white py-3 font-light">
+          © adamtechnologyagency
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function deviceWizard() {
+      return {
+        step: 1,
+        selectedDevice: null,
+        devices: [
+          { id: 'mac', name: 'Mac', image: 'assets/img/Rectangle 508.png' },
+          { id: 'iphone', name: 'iPhone', image: 'assets/img/Rectangle 509.png' },
+          { id: 'ipad', name: 'iPad', image: 'assets/img/Rectangle 510.png' },
+          { id: 'watch', name: 'Apple Watch', image: 'assets/img/Rectangle 511.png' },
+          { id: 'tv', name: 'Apple TV', image: 'assets/img/Rectangle 512.png' },
+          { id: 'pencil', name: 'Apple Pencil', image: 'assets/img/Rectangle 513.png' }
+        ],
+        models: [
+          { id: 1, name: 'Model 2023', image: '/api/placeholder/150/150' },
+          { id: 2, name: 'Model 2022', image: '/api/placeholder/150/150' },
+          { id: 3, name: 'Model 2021', image: '/api/placeholder/150/150' },
+          { id: 4, name: 'Model 2020', image: '/api/placeholder/150/150' }
+        ],
+        conditions: [
+          {
+            id: 'new',
+            title: 'Brand New',
+            requirements: [
+              'Sealed in original packaging',
+              'Never opened or used',
+              'All original accessories included',
+              'Factory warranty valid'
+            ]
+          },
+          {
+            id: 'excellent',
+            title: 'Excellent',
+            requirements: [
+              'Like new condition',
+              'No scratches or damages',
+              'All features fully functional',
+              'Original accessories included'
+            ]
+          },
+          {
+            id: 'good',
+            title: 'Good',
+            requirements: [
+              'Minor wear from normal use',
+              'Fully functional',
+              'Minor scratches or scuffs',
+              'May have repairs'
+            ]
+          },
+          {
+            id: 'fair',
+            title: 'Fair',
+            requirements: [
+              'Visible wear and tear',
+              'Functional with some issues',
+              'Noticeable scratches or dents',
+              'Previous repairs likely'
+            ]
+          }
+        ],
+        selections: {
+          year: null,
+          memory: null,
+          condition: null,
+          deliveryMethod: null,
+          formData: {
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            address: '',
+            city: '',
+            state: '',
+            zip: ''
+          }
+        },
+        activeCondition: null,
+        selectDevice(device) {
+          console.log('Selecting device:', device);
+          this.selectedDevice = device;
+          this.step = 2;
+        },
+        selectModel(model) {
+          console.log('Selecting model:', model);
+          this.step = 3;
+        },
+        setYear(year) {
+          this.selections.year = year;
+          this.selections.memory = null;
+          this.selections.condition = null;
+          this.activeCondition = null;
+        },
+        setMemory(memory) {
+          this.selections.memory = memory;
+          this.selections.condition = null;
+          this.activeCondition = null;
+        },
+        toggleCondition(conditionId) {
+          this.activeCondition = this.activeCondition === conditionId ? null : conditionId;
+        },
+        setCondition(conditionId) {
+          this.selections.condition = conditionId;
+          this.activeCondition = null;
+          this.step = 4;
+        },
+        selectDeliveryMethod(method) {
+          this.selections.deliveryMethod = method;
+          this.step = 5;
+        },
+        submitForm() {
+          console.log('Submitting form with selections:', this.selections);
+          // Here you would typically send the data to your server
+          alert('Trade-in request submitted successfully!');
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

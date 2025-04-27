@@ -1,0 +1,104 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+START: Achievement CSS
+----------------------------------------*/
+.tj-achievement-section {
+	background-color: var(--tj-color-theme-bg);
+	background-blend-mode: luminosity;
+	.sec-heading {
+		max-width: 550px;
+	}
+}
+.achievement-slider {
+	position: relative;
+	&::before {
+		content: "";
+		position: absolute;
+		top: 62px;
+		left: 0;
+		width: 100%;
+		border-bottom: 1px dashed var(--tj-color-border-2);
+		@media #{$sm, $xs} {
+			top: 55px;
+		}
+	}
+	.swiper-slide-active {
+		.achievement-year {
+			span {
+				background-color: var(--tj-color-theme-primary);
+				&::before {
+					background-color: var(--tj-color-common-black);
+				}
+			}
+		}
+	}
+}
+.achievement-year {
+	font-family: var(--tj-ff-heading);
+	font-weight: var(-tj-fw-medium);
+	font-size: 24px;
+	line-height: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	span {
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+		background-color: var(--tj-color-common-black);
+		position: relative;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		margin: 27px 0;
+		&::before {
+			content: "";
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background-color: var(--tj-color-theme-primary);
+		}
+		@media #{$sm, $xs} {
+			margin: 20px 0;
+		}
+	}
+}
+.achievement-content {
+	background-color: var(--tj-color-common-white);
+	padding: 33px 27px;
+	height: 100%;
+	margin-top: 20px;
+	position: relative;
+	.title {
+		text-transform: uppercase;
+		margin-bottom: 23px;
+	}
+	.desc {
+		p {
+			margin-bottom: 0;
+		}
+	}
+	.read-more {
+		margin-top: 27px;
+	}
+	&::before {
+		content: "";
+		position: absolute;
+		top: -16px;
+		left: 50%;
+		width: 0;
+		height: 0;
+		border-left: 17px solid transparent;
+		border-right: 17px solid transparent;
+		border-bottom: 18px solid var(--tj-color-common-white);
+		transform: translateX(-50%);
+	}
+	@media #{$sm, $xs} {
+		padding: 30px 20px;
+		margin-top: 15px;
+	}
+}
+
+/* !END: Achievement CSS */

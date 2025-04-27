@@ -1,0 +1,211 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+START: Chose CSS
+----------------------------------------*/
+.tj-chose-section {
+	&.chose-3,
+	&.chose-2 {
+		background-color: var(--tj-color-theme-bg);
+		background-blend-mode: luminosity;
+	}
+	.sec-heading {
+		max-width: 550px;
+	}
+	&.chose-3 {
+		.sec-heading {
+			margin-inline-start: 0;
+			margin-inline-end: 0;
+		}
+	}
+}
+.chose-box {
+	height: 100%;
+	.chose-icon {
+		display: inline-flex;
+		color: var(--tj-color-theme-primary);
+		font-size: 48px;
+		line-height: 1;
+		margin-bottom: 25px;
+		i {
+			line-height: 1;
+			display: inline-flex;
+		}
+		@media #{$md, $sm, $xs} {
+			margin-bottom: 20px;
+		}
+	}
+	.title {
+		text-transform: uppercase;
+		margin-bottom: 20px;
+		@media #{$md, $sm, $xs} {
+			font-size: 18px;
+			margin-bottom: 10px;
+		}
+	}
+	.desc {
+		margin-bottom: 0;
+	}
+}
+
+.chose-1 {
+	.chose-box {
+		padding: 40px 28px;
+		border: 1px dashed var(--tj-color-border-1);
+		transition: all 0.4s ease-in-out;
+		&:hover {
+			background-color: var(--tj-color-theme-bg);
+			background-image: url(../images/shape/box-pattern.webp);
+			background-blend-mode: luminosity;
+			border-color: transparent;
+			.chose-icon {
+				animation: gelatine 0.6s;
+			}
+		}
+		@media #{$xl} {
+			padding: 40px 18px;
+		}
+		@media #{$sm, $xs} {
+			padding: 30px 15px;
+		}
+	}
+}
+
+.chose-2 {
+	.chose-box {
+		background-color: var(--tj-color-common-white);
+		padding: 30px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+		.chose-icon {
+			width: 70px;
+			height: 70px;
+			background-color: var(--tj-color-common-black);
+			color: var(--tj-color-common-white);
+			align-items: center;
+			justify-content: center;
+			transition: all 0.6s ease-in-out;
+			margin-bottom: 0;
+			@media #{$xl} {
+				width: 60px;
+				height: 60px;
+				font-size: 40px;
+			}
+		}
+		.chose-content {
+			flex: 1;
+			@media #{$lg, $md} {
+				flex: auto;
+			}
+			@media #{$sm, $xs} {
+				margin-top: 10px;
+			}
+		}
+		&:hover {
+			.chose-icon {
+				background-color: var(--tj-color-theme-primary);
+				transform: rotateY(-360deg);
+			}
+		}
+		@media #{$xl} {
+			padding: 25px;
+		}
+		@media #{$xs} {
+			padding: 25px 20px;
+			gap: 15px;
+		}
+	}
+}
+
+.chose-3 {
+	.chose-box {
+		padding: 40px 28px;
+		background-color: var(--tj-color-common-white);
+		transition: all 0.4s ease-in-out;
+		&:hover {
+			box-shadow: 0 4px 20px 0 rgba(255, 102, 32, 0.2);
+			.chose-icon {
+				animation: gelatine 0.6s;
+			}
+		}
+		@media #{$xl, $lg} {
+			padding: 32px 18px;
+		}
+		@media #{$sm, $xs} {
+			padding: 30px 15px;
+		}
+	}
+}
+
+.work-experience-area {
+	max-width: 570px;
+	.sec-heading {
+		margin-bottom: 65px;
+		@media #{$lg} {
+			margin-bottom: 50px;
+		}
+		@media #{$md, $sm, $xs} {
+			margin-bottom: 35px;
+		}
+	}
+	@media #{$md, $sm, $xs} {
+		max-width: 100%;
+		margin-bottom: 50px;
+	}
+}
+.experience-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: end;
+	border-top: 1px dashed rgba(0, 0, 0, 0.16);
+	border-bottom: 1px dashed rgba(0, 0, 0, 0.16);
+	.year-count {
+		color: var(--tj-color-theme-primary);
+		font-size: 404px;
+		line-height: 0.75;
+		font-family: var(--tj-ff-heading);
+		font-weight: var(--tj-fw-light);
+		letter-spacing: -8.08px;
+		display: inline-flex;
+		padding: 17px 30px 38px 0;
+		border-right: 1px dashed rgba(0, 0, 0, 0.16);
+		@media #{$lg, $md} {
+			font-size: 335px;
+		}
+		@media #{$sm} {
+			font-size: 250px;
+		}
+		@media #{$xs} {
+			font-size: 210px;
+		}
+	}
+	.experience-text {
+		padding-left: 32px;
+		padding-bottom: 35px;
+		.title {
+			max-width: 110px;
+			font-size: 16px;
+			font-weight: var(--tj-fw-sbold);
+			font-family: var(--tj-ff-body);
+			text-transform: uppercase;
+			letter-spacing: 0;
+			margin-bottom: 0;
+		}
+		span {
+			color: var(--tj-color-theme-primary);
+			font-size: 24px;
+			display: inline-flex;
+			line-height: 1;
+			i {
+				display: inline-flex;
+				line-height: 1;
+			}
+		}
+		@media #{$xs} {
+			padding-left: 20px;
+		}
+	}
+}
+
+/* !END: Chose CSS */

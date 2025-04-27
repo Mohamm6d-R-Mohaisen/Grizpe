@@ -1,0 +1,103 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+START: Skill CSS
+----------------------------------------*/
+.tj-skill-section {
+	border-top: 1px dashed var(--tj-color-border-1);
+}
+.content-wrap {
+	.sec-heading {
+		max-width: 550px;
+		margin: 0 0 20px 0;
+	}
+	.tj-primary-btn {
+		margin-top: 14px;
+		@media #{$md, $sm, $xs} {
+			margin-top: 5px;
+		}
+	}
+	@media #{$sm, $xs} {
+		.desc {
+			br {
+				display: none;
+			}
+		}
+	}
+}
+.skill-area {
+	border: 1px dashed var(--tj-color-border-1);
+	display: flex;
+	flex-wrap: wrap;
+	.skill-item {
+		flex: 1;
+		width: 33.33%;
+		padding: 40px 10px;
+		border-right: 1px dashed var(--tj-color-border-1);
+		&:last-child {
+			border: none;
+		}
+		.circle-big {
+			position: relative;
+			width: 150px;
+			height: 150px;
+			z-index: 1;
+			margin: 0 auto 20px;
+			font-size: 32px;
+			line-height: 1;
+			font-family: var(--tj-ff-heading);
+			font-weight: var(--tj-fw-medium);
+			color: var(--tj-color-heading-primary);
+
+			span {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				z-index: 1;
+			}
+
+			svg {
+				width: 150px;
+				height: 150px;
+				transform: rotate(-90deg);
+			}
+
+			.bg {
+				fill: none;
+				stroke-width: 8px;
+				stroke: var(--tj-color-theme-bg);
+			}
+			.progress {
+				fill: none;
+				stroke-width: 8px;
+				stroke: var(--tj-color-theme-primary);
+				stroke-dasharray: 446;
+				stroke-dashoffset: 446;
+				transform-origin: 50% 50%;
+				transition: stroke-dashoffset 1s ease-in-out;
+			}
+		}
+		.text {
+			max-width: 130px;
+			margin: 0 auto;
+			text-align: center;
+			display: block;
+		}
+		@media #{$lg, $md} {
+			padding: 35px 15px;
+		}
+		@media #{$sm, $xs} {
+			flex: 0 0 auto;
+			width: 100%;
+			padding: 30px 20px;
+			border-right: 0;
+			border-bottom: 1px dashed var(--tj-color-border-1);
+		}
+	}
+
+	@media #{$md, $sm, $xs} {
+		margin-top: 40px;
+	}
+}
+/* !END: Skill CSS */

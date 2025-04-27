@@ -1,0 +1,117 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+START: Countup CSS
+----------------------------------------*/
+.tj-countup-section {
+	position: relative;
+	background-color: var(--tj-color-theme-primary);
+	.container {
+		@media #{$xs} {
+			padding: 0;
+		}
+	}
+}
+.countup-wrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+.countup-item {
+	display: flex;
+	flex-direction: column;
+	width: 25%;
+	border-left: 1px solid rgba(255, 255, 255, 0.5);
+	padding: 35px 50px 60px 50px;
+	background-repeat: no-repeat;
+	background-position: center;
+	&:first-child {
+		border-left: 0;
+		padding-left: 0;
+		@media #{$xs} {
+			border: 0;
+		}
+	}
+	@media #{$xl} {
+		padding: 35px 30px 60px 30px;
+	}
+	@media #{$lg} {
+		padding: 40px 30px 60px 30px;
+	}
+	@media #{$md, $sm} {
+		width: 50%;
+		padding: 43px 30px 60px 30px;
+		&:nth-child(3) {
+			border-left: 0;
+			padding-left: 0;
+			border-top: 1px solid rgba(255, 255, 255, 0.5);
+		}
+		&:nth-child(4) {
+			border-top: 1px solid rgba(255, 255, 255, 0.5);
+		}
+	}
+	@media #{$xs} {
+		width: 100%;
+		padding: 45px 0 60px 0;
+		border: 0;
+		border-top: 1px solid rgba(255, 255, 255, 0.5);
+		text-align: center;
+	}
+}
+.inline-content {
+	display: inline-flex;
+	align-items: center;
+	margin-bottom: 8px;
+	font-size: 80px;
+	line-height: 1;
+	font-weight: var(--tj-fw-medium);
+	color: var(--tj-color-common-white);
+	font-family: var(--tj-ff-heading);
+	letter-spacing: 6px;
+	.odometer {
+		font-weight: var(--tj-fw-medium);
+		color: var(--tj-color-common-white);
+		font-family: var(--tj-ff-heading);
+		display: inline-flex;
+		.odometer-digit,
+		span {
+			font-weight: var(--tj-fw-medium);
+			color: var(--tj-color-common-white);
+			font-family: var(--tj-ff-heading);
+			display: inline-flex;
+		}
+	}
+
+	@media #{$lg} {
+		font-size: 65px;
+	}
+	@media #{$md, $sm} {
+		font-size: 60px;
+	}
+	@media #{$xs} {
+		font-size: 55px;
+		justify-content: center;
+	}
+}
+
+.count-text {
+	color: var(--tj-color-common-white);
+	display: block;
+	margin-bottom: 19px;
+}
+.count-dots {
+	display: inline-flex;
+	gap: 5px;
+	span {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background-color: var(--tj-color-common-white);
+		display: block;
+	}
+
+	@media #{$xs} {
+		margin: 0 auto;
+	}
+}
+
+/* !END: Countup CSS */

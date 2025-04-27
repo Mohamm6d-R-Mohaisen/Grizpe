@@ -1,0 +1,118 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+START: Pricing CSS
+----------------------------------------*/
+.tj-pricing-section {
+	.sec-heading {
+		max-width: 550px;
+	}
+	.heading-wrap-content {
+		.desc {
+			max-width: 32%;
+			@media #{$lg} {
+				max-width: 40%;
+			}
+			@media #{$md, $sm, $xs} {
+				max-width: 100%;
+			}
+		}
+	}
+}
+.pricing-box {
+	padding: 37px 30px 40px;
+	border: 1px dashed var(--tj-color-border-1);
+	.check-list {
+		ul {
+			list-style: none;
+			li {
+				display: flex;
+				padding-bottom: 16px;
+				&:last-child {
+					padding-bottom: 0;
+				}
+				i {
+					font-size: 18px;
+				}
+			}
+		}
+	}
+	&.active {
+		background-color: var(--tj-color-theme-bg);
+		background-blend-mode: luminosity;
+		border: none;
+		border-top: 2px solid var(--tj-color-theme-primary);
+		.pricing-btn {
+			a {
+				background-color: var(--tj-color-theme-primary);
+				border-color: var(--tj-color-theme-primary);
+				span {
+					color: var(--tj-color-common-white);
+					text-shadow: 0 60px 0 var(--tj-color-common-white);
+				}
+			}
+		}
+	}
+}
+.package {
+	&-name {
+		text-transform: uppercase;
+		line-height: 1;
+		margin-bottom: 6px;
+	}
+	&-desc {
+		p {
+			margin-bottom: 0;
+		}
+	}
+	&-price {
+		display: flex;
+		font-size: 64px;
+		color: var(--tj-color-heading-primary);
+		font-family: var(--tj-ff-heading);
+		font-weight: var(--tj-fw-medium);
+		line-height: 0.72;
+		margin: 35px 0 40px;
+	}
+	&-currency {
+		font-size: 24px;
+	}
+	&-period {
+		font-size: 16px;
+		font-weight: var(--tj-fw-regular);
+		color: var(--tj-color-text-body-2);
+		margin-top: auto;
+	}
+}
+
+.pricing-btn {
+	overflow: hidden;
+	margin-bottom: 35px;
+	a {
+		display: block;
+		line-height: 1;
+		text-align: center;
+		border: 1px solid var(--tj-color-common-black);
+		padding: 19px;
+		span {
+			display: inline-flex;
+			line-height: 1;
+			color: var(--tj-color-common-black);
+			text-shadow: 0 60px 0 var(--tj-color-common-black);
+		}
+		.btn-text {
+			text-transform: uppercase;
+			font-weight: var(--tj-fw-sbold);
+		}
+		.btn-icon {
+			font-size: 12px;
+		}
+		&:hover {
+			span {
+				transform: translateY(-60px);
+			}
+		}
+	}
+}
+
+/* !END: Pricing CSS */

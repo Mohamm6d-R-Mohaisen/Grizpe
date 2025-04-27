@@ -1,0 +1,126 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+START: Before After CSS
+----------------------------------------*/
+.tj-before-after-section {
+	.content-wrap {
+		padding-left: 18px;
+		@media #{$md, $sm, $xs} {
+			padding-left: 0;
+			margin-bottom: 50px;
+		}
+	}
+}
+.tj-before-after-wrapper {
+	max-width: 606px;
+	width: 100%;
+	overflow: hidden;
+	&::before {
+		content: "Before";
+		position: absolute;
+		bottom: 15px;
+		left: 15px;
+		color: var(--tj-color-common-black);
+		z-index: 2;
+		background: var(--tj-color-common-white);
+		padding: 5px 7px;
+		font-weight: var(--tj-fw-sbold);
+		font-size: 14px;
+		line-height: 1;
+		text-transform: uppercase;
+		cursor: pointer;
+	}
+	&::after {
+		content: "After";
+		position: absolute;
+		bottom: 15px;
+		right: 15px;
+		color: var(--tj-color-common-black);
+		z-index: 1;
+		background: var(--tj-color-common-white);
+		padding: 5px 7px;
+		font-weight: var(--tj-fw-sbold);
+		font-size: 14px;
+		line-height: 1;
+		text-transform: uppercase;
+		cursor: pointer;
+	}
+	img {
+		max-width: inherit;
+		height: 454px;
+		object-fit: cover;
+		@media #{$lg} {
+			height: 420px;
+		}
+		@media #{$md} {
+			height: 480px;
+		}
+		@media #{$sm} {
+			height: 375px;
+		}
+		@media #{$xs} {
+			height: 320px;
+		}
+	}
+	& div:nth-of-type(3) {
+		& div {
+			& div {
+				background: var(--tj-color-common-black) !important;
+				& span {
+					position: relative;
+					z-index: 1;
+					&::before {
+						content: "\f0de";
+						position: absolute;
+						top: -4px;
+						left: -29px;
+						font-family: var(--tj-ff-fontawesome);
+						color: var(--tj-color-common-white);
+						font-size: 19px;
+						transform: translate(-0%, -50%);
+						font-weight: bold;
+						rotate: 90deg;
+					}
+					&::after {
+						content: "\f0dd";
+						position: absolute;
+						top: -4px;
+						left: 20px;
+						font-family: var(--tj-ff-fontawesome);
+						color: var(--tj-color-common-white);
+						rotate: 90deg;
+						transform: translate(0, 50%);
+						font-size: 19px;
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+	@media #{$sm} {
+		&::before {
+			left: 30px;
+		}
+		&::after {
+			right: 30px;
+		}
+	}
+	@media #{$xs} {
+		&::before {
+			left: 15px;
+			font-size: 16px;
+			padding: 3px 15px;
+		}
+		&::after {
+			right: 15px;
+			font-size: 16px;
+			padding: 3px 15px;
+		}
+	}
+	@media #{$md, $sm, $xs} {
+		max-width: 100%;
+	}
+}
+
+/* !END: Before After CSS */

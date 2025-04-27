@@ -1,0 +1,97 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+START: Team CSS
+----------------------------------------*/
+.tj-team-section {
+	background-color: var(--tj-color-theme-bg);
+	background-blend-mode: luminosity;
+	padding-top: 120px;
+	padding-bottom: 90px;
+	.sec-heading {
+		max-width: 550px;
+	}
+	@media #{$lg} {
+		padding-top: 100px;
+		padding-bottom: 70px;
+	}
+	@media #{$md, $sm, $xs} {
+		padding-top: 70px;
+		padding-bottom: 40px;
+	}
+	&.team-2 {
+		background-color: var(--tj-color-common-white);
+		.heading-wrap-content {
+			.btn-wrap {
+				margin: 25px 0;
+				@media #{$md, $sm, $xs} {
+					margin: 0;
+				}
+			}
+		}
+	}
+}
+.team-item {
+	position: relative;
+	margin-bottom: 30px;
+	.team-img {
+		position: relative;
+		overflow: hidden;
+		img {
+			width: 100%;
+			transition: all 0.3s linear;
+		}
+	}
+	.social-links {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		width: 31px;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.5s ease-in-out;
+		transform: translateX(100px);
+		ul {
+			padding: 0;
+			flex-direction: column;
+			li {
+				a {
+					width: 31px;
+					height: 31px;
+					font-size: 14px;
+					border-color: var(--tj-color-common-white);
+				}
+			}
+		}
+	}
+	.team-content {
+		padding-top: 18px;
+	}
+	.title {
+		text-transform: uppercase;
+		margin-bottom: 0;
+		a {
+			display: inline-block;
+			&:hover {
+				color: var(--tj-color-theme-primary);
+			}
+		}
+	}
+	.designation {
+		font-size: 14px;
+		line-height: 1;
+		display: inline-flex;
+	}
+	&:hover {
+		img {
+			transform: scale(1.1);
+		}
+		.social-links {
+			opacity: 1;
+			visibility: visible;
+			transform: translateX(0);
+		}
+	}
+}
+
+/* !END: Team CSS */

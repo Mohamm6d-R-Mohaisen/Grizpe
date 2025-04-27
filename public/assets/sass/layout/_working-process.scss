@@ -1,0 +1,267 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+START: Working process CSS
+----------------------------------------*/
+.tj-working-process {
+	position: relative;
+	background-color: var(--tj-color-theme-bg);
+	background-blend-mode: luminosity;
+	.heading-wrap-content {
+		.btn-wrap {
+			@media #{$sm, $xs} {
+				margin-top: 0;
+			}
+		}
+	}
+	.content-wrap {
+		margin-bottom: 45px;
+	}
+}
+.working-process-area {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 185px;
+	counter-reset: steps;
+	@media #{$xl} {
+		gap: 110px;
+	}
+	@media #{$lg} {
+		gap: 85px;
+	}
+	@media #{$md, $sm, $xs} {
+		gap: 80px;
+	}
+}
+.process-item {
+	max-width: 308px;
+	width: 100%;
+	background-color: var(--tj-color-common-white);
+	padding: 45px 28px 40px 28px;
+	text-align: center;
+	position: relative;
+	z-index: 2;
+	.process-icon {
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		background-color: var(--tj-color-common-black);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 34px;
+		position: relative;
+		transition: all 0.3s ease-in-out;
+		i {
+			font-size: 40px;
+			color: var(--tj-color-common-white);
+			display: inline-flex;
+			line-height: 1;
+		}
+		&::after {
+			counter-increment: steps;
+			content: "0" counter(steps);
+			width: 28px;
+			height: 28px;
+			background-color: var(--tj-color-common-white);
+			border: 1px dotted var(--tj-color-common-black);
+			border-radius: 50%;
+			font-size: 14px;
+			line-height: 26px;
+			font-weight: var(--tj-fw-bold);
+			position: absolute;
+			top: -8px;
+			right: -6px;
+		}
+		@media #{$md, $sm, $xs} {
+			margin-bottom: 20px;
+		}
+	}
+	.title {
+		text-transform: uppercase;
+		margin-bottom: 28px;
+		@media #{$md, $sm, $xs} {
+			margin-bottom: 10px;
+		}
+	}
+	.desc {
+		margin: 0;
+	}
+	&:not(:last-child)::before {
+		content: "";
+		width: 100%;
+		height: 1px;
+		border-bottom: 2px dotted var(--tj-color-grey-1);
+		position: absolute;
+		left: 100%;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: -1;
+		@media #{$md, $sm, $xs} {
+			transform: translate(-50%, 0) rotate(90deg);
+			top: inherit;
+			right: inherit;
+			bottom: -51px;
+			left: 50%;
+			width: 100px;
+		}
+	}
+	&:not(:last-child)::after {
+		content: "\e92f";
+		width: 16px;
+		height: 16px;
+		font-size: 16px;
+		line-height: 1;
+		font-family: "gripz-icons" !important;
+		font-weight: normal;
+		position: absolute;
+		right: -35%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		z-index: -1;
+		@media #{$xl} {
+			right: -25%;
+		}
+		@media #{$lg} {
+			right: -25%;
+		}
+		@media #{$md, $sm, $xs} {
+			transform: translate(-50%, 0) rotate(90deg);
+			top: inherit;
+			right: inherit;
+			bottom: -48px;
+			left: 50%;
+		}
+	}
+	&:hover {
+		.process-icon {
+			background-color: var(--tj-color-theme-primary);
+			i {
+				animation: jump-arrow 0.5s ease-in-out;
+			}
+		}
+	}
+	@media #{$xl} {
+		max-width: 298px;
+	}
+	@media #{$lg} {
+		max-width: 255px;
+		padding: 35px 18px 35px 18px;
+	}
+	@media #{$md, $sm, $xs} {
+		max-width: 100%;
+		padding: 35px 15px 30px 15px;
+	}
+}
+
+.working-process-wrap {
+	padding-top: 120px;
+	padding-bottom: 120px;
+	@media #{$lg} {
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+	@media #{$md, $sm, $xs} {
+		padding-top: 70px;
+		padding-bottom: 70px;
+		.content-wrap {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+.tj-faq {
+	&.style-3 {
+		max-width: 460px;
+		width: 100%;
+		padding: 0;
+		counter-reset: steps;
+		.accordion-item {
+			background: transparent;
+			border: none;
+			border-left: 4px solid var(--tj-color-border-1);
+			padding-left: 20px;
+			margin-bottom: 0;
+			.faq-title {
+				padding-right: 0;
+				padding-left: 27px;
+				color: var(--tj-color-heading-primary);
+				&::after {
+					display: none;
+				}
+				&::before {
+					counter-increment: steps;
+					content: "0" counter(steps) ".";
+					font-size: 14px;
+					line-height: 1;
+					font-weight: var(--tj-fw-medium);
+					position: absolute;
+					top: 50%;
+					left: 0;
+					transform: translateY(-50%);
+				}
+				@media #{$xl, $lg} {
+					font-size: 20px;
+				}
+				@media #{$md, $sm, $xs} {
+					font-size: 18px;
+				}
+			}
+			.accordion-body {
+				padding: 0 0 23px 27px;
+			}
+			&.active {
+				border-color: var(--tj-color-theme-primary);
+				.faq-title {
+					&::before {
+						color: var(--tj-color-theme-primary);
+					}
+				}
+			}
+			@media #{$md, $sm, $xs} {
+				padding-left: 10px;
+			}
+		}
+	}
+}
+
+.working-img-area {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 50%;
+	height: 100%;
+	.circle-text-wrap {
+		&.video-btn {
+			right: inherit;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 5;
+			@media #{$lg, $sm, $xs} {
+				width: 130px;
+				height: 130px;
+			}
+		}
+	}
+	@media #{$md, $sm, $xs} {
+		position: relative;
+		width: 100%;
+		min-height: 500px;
+	}
+}
+.working-img {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	img {
+		width: 100%;
+		height: 100%;
+		-o-object-fit: cover;
+		object-fit: cover;
+	}
+}
+
+/* !END: Working process CSS */

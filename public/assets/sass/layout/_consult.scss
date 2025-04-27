@@ -1,0 +1,188 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+START: Consult CSS
+----------------------------------------*/
+.tj-consult-section {
+	margin-top: -60px;
+	position: relative;
+	z-index: 1;
+}
+.consult-container {
+	margin-left: calc((100% - 1320px) / 2);
+	width: auto;
+	min-width: auto;
+	max-width: inherit;
+	padding-right: 0;
+
+	@media #{$xl} {
+		margin-left: calc((100% - 1140px) / 2);
+	}
+	@media #{$lg} {
+		margin-left: calc((100% - 960px) / 2);
+	}
+	@media #{$md} {
+		margin-left: calc((100% - 720px) / 2);
+	}
+	@media #{$sm, $xs} {
+		margin-left: auto;
+		padding: 0;
+	}
+}
+.consult-area {
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.consult-inner {
+	padding: 60px;
+	max-width: 1320px;
+	width: 100%;
+	position: relative;
+	z-index: 5;
+	.title {
+		color: var(--tj-color-common-white);
+		max-width: 500px;
+		width: 100%;
+		text-transform: uppercase;
+		line-height: 1;
+		margin-bottom: 40px;
+		@media #{$sm, $xs} {
+			margin-bottom: 25px;
+		}
+	}
+	@media #{$xl} {
+		padding: 40px;
+		max-width: 1140px;
+	}
+	@media #{$lg} {
+		padding: 40px;
+		max-width: 935px;
+	}
+	@media #{$md} {
+		padding: 30px;
+		max-width: 700px;
+	}
+	@media #{$sm} {
+		padding: 40px 0;
+		max-width: 520px;
+		margin-inline-end: auto;
+		margin-inline-start: auto;
+	}
+	@media #{$xs} {
+		padding: 40px 15px;
+		max-width: 100%;
+		margin-inline-end: auto;
+		margin-inline-start: auto;
+	}
+}
+.consult-form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	.consult-col {
+		max-width: 335px;
+		width: 100%;
+		.form-input {
+			margin-bottom: 20px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			textarea,
+			select,
+			.nice-select,
+			input[type="tel"],
+			input[type="text"],
+			input[type="email"] {
+				background-color: var(--tj-color-text-body);
+				color: var(--tj-color-grey-1);
+				padding: 16px 20px;
+				border-color: var(--tj-color-border-2);
+				@include placeholder {
+					color: var(--tj-color-grey-1);
+				}
+				&:focus {
+					border-color: var(--tj-color-theme-primary);
+				}
+			}
+			.nice-select {
+				color: var(--tj-color-grey-1);
+				line-height: 1.5;
+				border-radius: 0;
+				.list {
+					width: 100%;
+					background-color: var(--tj-color-text-body);
+					border-radius: 0;
+					.option {
+						&:hover,
+						&.focus {
+							background: var(--tj-color-theme-primary);
+							color: var(--tj-color-common-white);
+						}
+					}
+				}
+				&::after {
+					width: 9px;
+					height: 9px;
+					right: 24px;
+				}
+			}
+			textarea {
+				height: 134px;
+				resize: none;
+			}
+		}
+
+		@media #{$xl} {
+			max-width: 288px;
+		}
+		@media #{$lg} {
+			max-width: 271px;
+		}
+		@media #{$md} {
+			max-width: 310px;
+		}
+		@media #{$sm, $xs} {
+			max-width: 100%;
+		}
+	}
+}
+.circle-send-btn {
+	background-color: var(--tj-color-theme-primary);
+	width: 134px;
+	height: 134px;
+	border-radius: 50%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	span {
+		font-size: 32px;
+		line-height: 1;
+		display: inline-flex;
+		i {
+			color: var(--tj-color-common-white);
+			line-height: 1;
+			display: inline-flex;
+		}
+	}
+	.circle-text {
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 111px;
+		height: 112px;
+		transform: translate(-50%, -50%);
+		-webkit-animation: textrotate 20s infinite linear;
+		animation: textrotate 20s infinite linear;
+	}
+	&:hover {
+		span {
+			transform: scale(0.7);
+		}
+	}
+}
+
+/* !END: Consult CSS */

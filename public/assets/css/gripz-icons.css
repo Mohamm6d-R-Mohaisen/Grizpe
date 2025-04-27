@@ -1,0 +1,211 @@
+@font-face {
+	font-family: "gripz-icons";
+	src: url("../fonts/gripz-icons.eot?k5etx3");
+	src: url("../fonts/gripz-icons.eot?k5etx3#iefix") format("embedded-opentype"),
+		url("../fonts/gripz-icons.ttf?k5etx3") format("truetype"),
+		url("../fonts/gripz-icons.woff?k5etx3") format("woff"),
+		url("../fonts/gripz-icons.svg?k5etx3#gripz-icons") format("svg");
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+[class^="tji-"],
+[class*=" tji-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: "gripz-icons" !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.tji-phone-2:before {
+	content: "\e938";
+}
+.tji-check:before {
+	content: "\e925";
+}
+.tji-quote:before {
+	content: "\e91b";
+}
+.tji-chat:before {
+	content: "\e900";
+}
+.tji-envelop:before {
+	content: "\e901";
+}
+.tji-location-3:before {
+	content: "\e902";
+}
+.tji-comment:before {
+	content: "\e903";
+}
+.tji-quote-2:before {
+	content: "\e904";
+}
+.tji-arrow-long-2:before {
+	content: "\e905";
+}
+.tji-window:before {
+	content: "\e906";
+}
+.tji-calendar:before {
+	content: "\e907";
+}
+.tji-chart:before {
+	content: "\e908";
+}
+.tji-location-2:before {
+	content: "\e909";
+}
+.tji-budget:before {
+	content: "\e90a";
+}
+.tji-user:before {
+	content: "\e90b";
+}
+.tji-electric:before {
+	content: "\e90c";
+}
+.tji-radiation:before {
+	content: "\e90d";
+}
+.tji-house-2:before {
+	content: "\e90e";
+}
+.tji-lighting:before {
+	content: "\e90f";
+}
+.tji-home:before {
+	content: "\e910";
+}
+.tji-after-icon:before {
+	content: "\e911";
+}
+.tji-before-icon:before {
+	content: "\e912";
+}
+.tji-marquee-icon:before {
+	content: "\e913";
+}
+.tji-marquee-icon-2:before {
+	content: "\e914";
+}
+.tji-maintenance:before {
+	content: "\e915";
+}
+.tji-extensions:before {
+	content: "\e916";
+}
+.tji-rebuild:before {
+	content: "\e917";
+}
+.tji-loading-2:before {
+	content: "\e918";
+}
+.tji-loading:before {
+	content: "\e919";
+}
+.tji-hamburger:before {
+	content: "\e91a";
+}
+.tji-painting:before {
+	content: "\e91c";
+}
+.tji-color-palatte:before {
+	content: "\e91d";
+}
+.tji-house:before {
+	content: "\e91e";
+}
+.tji-paint-brush:before {
+	content: "\e91f";
+}
+.tji-bucket-2:before {
+	content: "\e920";
+}
+.tji-location:before {
+	content: "\e921";
+}
+.tji-bucket:before {
+	content: "\e922";
+}
+.tji-arrow-up:before {
+	content: "\e923";
+}
+.tji-bell:before {
+	content: "\e924";
+}
+.tji-minus:before {
+	content: "\e926";
+}
+.tji-plus:before {
+	content: "\e927";
+}
+.tji-arrow-right:before {
+	content: "\e928";
+}
+.tji-arrow-left:before {
+	content: "\e929";
+}
+.tji-arrow-long:before {
+	content: "\e92a";
+}
+.tji-safety:before {
+	content: "\e92b";
+}
+.tji-energy:before {
+	content: "\e92c";
+}
+.tji-repair:before {
+	content: "\e92d";
+}
+.tji-circle-check:before {
+	content: "\e92e";
+}
+.tji-play:before {
+	content: "\e92f";
+}
+.tji-arrow-down:before {
+	content: "\e930";
+}
+.tji-plug:before {
+	content: "\e931";
+}
+.tji-time:before {
+	content: "\e932";
+}
+.tji-community:before {
+	content: "\e933";
+}
+.tji-badge-check-2:before {
+	content: "\e934";
+}
+.tji-human:before {
+	content: "\e935";
+}
+.tji-switch-on:before {
+	content: "\e936";
+}
+.tji-paper-plane:before {
+	content: "\e937";
+}
+.tji-percent:before {
+	content: "\e93f";
+}
+.tji-phone:before {
+	content: "\e940";
+}
+.tji-spark:before {
+	content: "\e941";
+}
+.tji-search:before {
+	content: "\e942";
+}
