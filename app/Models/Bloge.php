@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Http\Resources\Admin\AddResource;
 use App\Http\Resources\Admin\BlogResource;
+use App\Traits\HasImages;
 use App\Traits\ModelTrait;
 use Astrotomic\Translatable\Translatable as Trans;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,11 +12,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bloge extends Model
 {
-    use HasFactory, Trans, ModelTrait;
+    use HasFactory, Trans, ModelTrait,HasImages;
     //
     public $resource = BlogResource::class;
 
-    public $translatedAttributes = ['title','author_name','content','lessons','quotation','short_description'];
+    public $translatedAttributes = ['title','author_name','content','lessons','quotation','short_description','conclusions'];
     public $translationForeignKey = 'bloge_id';
     public $translatedLocales = ['en', 'ar'];
     public $table = 'bloges';
@@ -42,4 +43,8 @@ class Bloge extends Model
     public function comments(){
     return $this->hasMany(Comment::class);
         }
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }

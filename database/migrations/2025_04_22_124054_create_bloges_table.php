@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('bloges', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->constrained('categories');
             $table->string('image')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->foreignId('category_id')->constrained('categories');
-            $table->foreignId('comment_id')->nullable()->constrained('comments');
+
             $table->timestamps();
         });
     }

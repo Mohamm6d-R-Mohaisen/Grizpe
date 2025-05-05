@@ -78,6 +78,7 @@ trait HasImages
 
     private function saveImageWithSizes($imageFile, $path, $pos)
     {
+
         $sizes = [
             'large' => [1024, 768],
             'medium' => [512, 384],

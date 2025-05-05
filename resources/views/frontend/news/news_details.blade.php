@@ -4,7 +4,7 @@
 
     <main id="primary" class="site-main">
         <!-- start: Breadcrumb Section -->
-        <section class="tj-page-header" data-bg-image="@if(isset($galary_main->image))@endif">
+        <section class="tj-page-header" data-bg-image="@if(isset($galary->image) && $galary->sub_type == 'main'){{ asset($galary->image) }}@endif">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -64,17 +64,19 @@
                             </div>
                         </div>
                         <div class="blog-text">
-                            <p>{{$blog->description}}.</p>
-                                <cite>Kevin Hooks</cite>
-                            </blockquote>
+                            <p>{{$blog->content}}.</p>
+
+                            <blockquote data-bg-image="assets/images/shape/faq-item-bg.webp">
+                                <p>{{$blog->quotation}}.</p>
+
                             <h3>KEY LESSONS OF ELECTRICALS</h3>
                             <p>{{$blog->lessons}}.</p>
                             <div class="images-wrap">
                                 <div class="row">
-                                    @foreach($galary_slider as $galary)
+                                    @foreach($blog->images as $image)
                                     <div class="col-sm-6">
                                         <div class="image-box">
-                                            <img src="{{$galary->image}}" alt="Image">
+                                            <img src="{{getImageUrl($image->path, 'medium') }}" style="width: 400px;height: 300px;" alt="Image">
                                         </div>
                                     </div>
                                         @endforeach

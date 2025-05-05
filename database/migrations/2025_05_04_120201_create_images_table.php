@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('shipping_companies', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('tracking_url')->nullable();
-            $table->decimal('cost', 10, 2);
-            $table->tinyInteger('status')->default(1);
+            $table->morphs('imageable');
+            $table->integer('pos')->default(1);
+            $table->string('path');
             $table->timestamps();
+            $table->index(['imageable_id', 'imageable_type']);
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('shipping_companies');
+        Schema::dropIfExists('images');
     }
 };

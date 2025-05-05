@@ -23,16 +23,15 @@ class NewsController extends Controller
     }
 
     public function news_detail(String $id){
-        $data['galary_main']=Galary::where('type','=','blog')->where('sub_type','=','main')->first();
-        $data['galary_footer']=Galary::where('type','=','blog')->where('sub_type','=','footer')->first();
-        $data['galary_slider']=Galary::where('type','=','blog')->where('sub_type','=','slider')->limit(2)->get();
+        $data['galary']=Galary::where('type','=','blog')->first();
+
         $data['related']=Bloge::latest()
             ->limit(3)
             ->get();
 //        $data['categories'] = Category::whereNotIn('id', function ($query) {
 //            $query->select('category_id')->from('bloges');
 //        })->get();
-        $data['blog']=Bloge::with(['category'])->findOrFail($id);
+        $data['blog']=Bloge::with(['category','images'])->findOrFail($id);
         $data['categories'] = Category::where('id','!=',$data['blog']->category_id)->get();
 
         $data['comments']=Comment::where('blog_id','=',$id)->get();

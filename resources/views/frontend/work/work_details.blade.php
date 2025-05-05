@@ -41,15 +41,13 @@
                             <p>{{$work->overview}}.</p>
 
                             <h3>PROJECT GALLERY</h3>
-                            <P>Maintaining a safe construction site requires vigilance, continuous improvement, and commitment from
-                                everyone involved. By following these best practices create a safer work environment.</P>
                             <div class="images-wrap">
                                 <div class="row">
-                                    @foreach($galary_slider as $galary)
+                                    @foreach($work->images as $image)
                                     <div class="col-sm-6">
                                         <div class="image-box">
                                             <a class="gallery" data-gall="gallery" href="assets/images/work/work-21.webp"><img
-                                                    src="{{$galary->image}}" alt="Image"></a>
+                                                    src="{{getImageUrl($image->path, 'medium')}}" style="width: 400px;height: 300px;" alt="Image"></a>
                                         </div>
                                     </div>
                                         @endforeach

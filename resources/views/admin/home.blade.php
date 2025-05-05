@@ -1,4 +1,5 @@
 @extends('admin.layouts.master', ['is_active_parent' => 'home','is_active'=> 'home'])
+
 @section('content')
     <div class="d-flex flex-stack mb-5">
         <div class="d-flex align-items-center position-relative my-1">

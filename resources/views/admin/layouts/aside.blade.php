@@ -58,63 +58,12 @@
                         </a>
                     </div>
                 @endif
-                @if(auth()->user()->can('view_products'))
-                    <div class="menu-item menu-accordion {{ $is_active_parent == 'products' ? 'here show' : '' }}">
-                        <span class="menu-link">
-                            <span class="menu-icon">
-                                <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
-                                </span>
-                            </span>
-                            <span class="menu-title">
-                                <a class="{{ $is_active == 'products' ? 'active' : '' }}"
-                                    href="{{ route('admin.products.index')}}">
-                                    <span class="menu-title">{{ __('admin.menu.products') }}</span>
-                                </a>
-                            </span>
-                        </span>
-                    </div>
-                @endif
-                @if(auth()->user()->can('view_attributes'))
-                    <div class="menu-item menu-accordion {{ $is_active_parent == 'attributes' ? 'here show' : '' }}">
-                        <span class="menu-link">
-                            <span class="menu-icon">
-                                <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
-                                </span>
-                            </span>
-                            <span class="menu-title">
-                                <a class="{{ $is_active == 'attributes' ? 'active' : '' }}"
-                                    href="{{ route('admin.attributes.index')}}">
-                                    <span class="menu-title">{{ __('admin.menu.attributes') }}</span>
-                                </a>
-                            </span>
-                        </span>
-                    </div>
-                @endif
-                @if(auth()->user()->can('view_attribute_values'))
-                    <div class="menu-item menu-accordion {{ $is_active_parent == 'attribute_values' ? 'here show' : '' }}">
-                        <span class="menu-link">
-                            <span class="menu-icon">
-                                <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
-                                </span>
-                            </span>
-                            <span class="menu-title">
-                                <a class="{{ $is_active == 'attribute_values' ? 'active' : '' }}"
-                                    href="{{ route('admin.attribute_values.index')}}">
-                                    <span class="menu-title">{{ __('admin.menu.attribute_values') }}</span>
-                                </a>
-                            </span>
-                        </span>
-                    </div>
-                @endif
                 @if(auth()->user()->can('view_categories'))
                     <div class="menu-item menu-accordion {{ $is_active_parent == 'categories' ? 'here show' : '' }}">
                         <span class="menu-link">
                             <span class="menu-icon">
                                 <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
+                                    <i class="fi fi-rr-apps"></i>
                                 </span>
                             </span>
                             <span class="menu-title">
@@ -131,7 +80,7 @@
                         <span class="menu-link">
                             <span class="menu-icon">
                                 <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
+                                    <i class="fi fi-rr-book-alt"></i>
                                 </span>
                             </span>
                             <span class="menu-title">
@@ -146,7 +95,7 @@
                         <span class="menu-link">
                             <span class="menu-icon">
                                 <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
+                                    <i class="fi fi-rr-images"></i>
                                 </span>
                             </span>
                             <span class="menu-title">
@@ -161,7 +110,7 @@
                         <span class="menu-link">
                             <span class="menu-icon">
                                 <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
+                                    <i class="fi fi-rr-question-square"></i>
                                 </span>
                             </span>
                             <span class="menu-title">
@@ -176,7 +125,7 @@
                         <span class="menu-link">
                             <span class="menu-icon">
                                 <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
+                                    <i class="fi fi-rr-customer-care"></i>
                                 </span>
                             </span>
                             <span class="menu-title">
@@ -191,7 +140,7 @@
                         <span class="menu-link">
                             <span class="menu-icon">
                                 <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
+                                    <i class="fi fi-tr-master-plan"></i>
                                 </span>
                             </span>
                             <span class="menu-title">
@@ -206,7 +155,7 @@
                         <span class="menu-link">
                             <span class="menu-icon">
                                 <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
+                                    <i class="fi fi-tr-briefcase"></i>
                                 </span>
                             </span>
                             <span class="menu-title">
@@ -221,7 +170,7 @@
                         <span class="menu-link">
                             <span class="menu-icon">
                                 <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
+                                    <i class="fi fi-tr-blog-text"></i>
                                 </span>
                             </span>
                             <span class="menu-title">
@@ -251,7 +200,7 @@
                         <span class="menu-link">
                             <span class="menu-icon">
                                 <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
+
                                 </span>
                             </span>
                             <span class="menu-title">
@@ -280,57 +229,9 @@
                         </span>
                     </div>
                 @endif
-                @if(auth()->user()->can('view_coupons'))
-                    <div class="menu-item menu-accordion {{ $is_active_parent == 'coupons' ? 'here show' : '' }}">
-                        <span class="menu-link">
-                            <span class="menu-icon">
-                                <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
-                                </span>
-                            </span>
-                            <span class="menu-title">
-                                <a class="{{ $is_active == 'coupons' ? 'active' : '' }}"
-                                    href="{{ route('admin.coupons.index')}}">
-                                    <span class="menu-title">{{ __('admin.menu.coupons') }}</span>
-                                </a>
-                            </span>
-                        </span>
-                    </div>
-                @endif
-                @if(auth()->user()->can('view_offers'))
-                    <div class="menu-item menu-accordion {{ $is_active_parent == 'offers' ? 'here show' : '' }}">
-                        <span class="menu-link">
-                            <span class="menu-icon">
-                                <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
-                                </span>
-                            </span>
-                            <span class="menu-title">
-                                <a class="{{ $is_active == 'offers' ? 'active' : '' }}"
-                                    href="{{ route('admin.offers.index')}}">
-                                    <span class="menu-title">{{ __('admin.menu.offers') }}</span>
-                                </a>
-                            </span>
-                        </span>
-                    </div>
-                @endif
-                @if(auth()->user()->can('view_orders'))
-                    <div class="menu-item menu-accordion {{ $is_active_parent == 'orders' ? 'here show' : '' }}">
-                        <span class="menu-link">
-                            <span class="menu-icon">
-                                <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
-                                </span>
-                            </span>
-                            <span class="menu-title">
-                                <a class="{{ $is_active == 'orders' ? 'active' : '' }}"
-                                    href="{{ route('admin.orders.index')}}">
-                                    <span class="menu-title">{{ __('admin.menu.orders') }}</span>
-                                </a>
-                            </span>
-                        </span>
-                    </div>
-                @endif
+
+
+
                 @if(auth()->user()->can('view_reviews'))
                     <div class="menu-item menu-accordion {{ $is_active_parent == 'reviews' ? 'here show' : '' }}">
                         <span class="menu-link">
@@ -348,61 +249,13 @@
                         </span>
                     </div>
                 @endif
-                @if(auth()->user()->can('view_shipping_companies'))
-                    <div class="menu-item menu-accordion {{ $is_active_parent == 'shipping_companies' ? 'here show' : '' }}">
-                        <span class="menu-link">
-                            <span class="menu-icon">
-                                <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
-                                </span>
-                            </span>
-                            <span class="menu-title">
-                                <a class="{{ $is_active == 'shipping_companies' ? 'active' : '' }}"
-                                    href="{{ route('admin.shipping_companies.index')}}">
-                                    <span class="menu-title">{{ __('admin.menu.shipping_companies') }}</span>
-                                </a>
-                            </span>
-                        </span>
-                    </div>
-                @endif
-                @if(auth()->user()->can('view_static_pages'))
-                    <div class="menu-item menu-accordion {{ $is_active_parent == 'static_pages' ? 'here show' : '' }}">
-                        <span class="menu-link">
-                            <span class="menu-icon">
-                                <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
-                                </span>
-                            </span>
-                            <span class="menu-title">
-                                <a class="{{ $is_active == 'static_pages' ? 'active' : '' }}"
-                                    href="{{ route('admin.static_pages.index')}}">
-                                    <span class="menu-title">{{ __('admin.menu.static_pages') }}</span>
-                                </a>
-                            </span>
-                        </span>
-                    </div>
-                @endif
-                @if(auth()->user()->can('view_home_sections'))
-                    <div class="menu-item menu-accordion {{ $is_active_parent == 'home_sections' ? 'here show' : '' }}">
-                        <span class="menu-link">
-                            <span class="menu-icon">
-                                <span class="svg-icon svg-icon-2">
-                                    <i class="fa-solid fa-font-awesome"></i>
-                                </span>
-                            </span>
-                            <span class="menu-title">
-                                <a class="{{ $is_active == 'home_sections' ? 'active' : '' }}"
-                                    href="{{ route('admin.home_sections.index')}}">
-                                    <span class="menu-title">{{ __('admin.menu.home_sections') }}</span>
-                                </a>
-                            </span>
-                        </span>
-                    </div>
-                @endif
+
+
+
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ $is_active_parent == 'user_management' ? 'here show' : '' }}">
                     <span class="menu-link menu-accordion">
                         <span class="menu-icon">
-                            <span class="svg-icon svg-icon-2">
+                            <span class="svg-icon svg-icon">
                                 <i class="fa-solid fa-font-awesome"></i>
                             </span>
                         </span>

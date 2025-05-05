@@ -6,13 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Models\Service;
 use App\Models\Slider;
 use App\Models\Work;
+use App\Traits\HasImages;
 use App\Traits\SaveImageTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class WorkController extends Controller
 {
-    use SaveImageTrait;
+    use SaveImageTrait,HasImages;
     /**
      * Display a listing of the resource.
      */
@@ -60,7 +61,18 @@ class WorkController extends Controller
 
             // إضافة الترجمات
             $work->createTranslation($dataTrans);
+            if (!empty($request->media_repeater)) {
 
+                foreach ($request->media_repeater as $key => $media) {
+                    if (isset($media['image'])) {
+                        $path = $this->saveImageWithSizes($media['image'], 'works_images' , $key);
+                        $work->images()->create([
+                            'path' => $path['original'], // حفظ الصورة الأصلية فقط كمرجع
+                            'pos' => $key,
+                        ]);
+                    }
+                }
+            }
             DB::commit();
 
             return $this->response_api(200, __('admin.form.added_successfully'), '');
@@ -113,7 +125,20 @@ class WorkController extends Controller
             $work->update($dataR);
             // إضافة الترجمات
             $work->createTranslation($dataTrans);
-
+            if ($request->has('media_repeater')) {
+                // حذف الصور القديمة
+                $work->images()->delete();
+                // حفظ الصور الجديدة
+                foreach ($request->media_repeater as $key => $media) {
+                    if (isset($media['image'])) {
+                        $path = $this->saveImageWithSizes($media['image'], 'bloges_images' , $key);
+                        $work->images()->create([
+                            'path' => $path['original'], // حفظ الصورة الأصلية فقط كمرجع
+                            'pos' => $key,
+                        ]);
+                    }
+                }
+            }
             DB::commit();
 
             return $this->response_api(200, __('admin.form.updated_successfully'), '');
