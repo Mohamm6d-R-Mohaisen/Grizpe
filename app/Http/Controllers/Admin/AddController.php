@@ -32,6 +32,7 @@ class AddController extends Controller
     public function create()
     {
         //
+       // this from github dev
         return view('admin.adds.create');
     }
 
